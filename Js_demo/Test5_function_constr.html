@@ -1,0 +1,14 @@
+<html>
+    <body>
+        <button onclick="new_fun()">Click Me</button><br/>
+      
+    </body>
+    <script>
+    var func=new Function("x","y","return x*y;");
+    function new_fun()
+     {
+         document.write(func(3,5));
+        
+    }
+    </script>
+</html>

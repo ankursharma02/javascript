@@ -1,0 +1,51 @@
+<form action="sucess.html">
+   First Name:<input type="text" name="firstName" pattern="[a-zA-Z]" title="spec char and number not allow" /> <br/></br>
+   Last Name:<input type="text" name="lastName" onkeypress="return demo(this)"/> <br/><br/>
+   <span id="s1" ></span><br/><br/>
+   Age : <input type="number" name="age"/><br/>
+   <input type="submit" value="registration" onclick="return validateReg()"/>
+</form>
+
+<script>
+   function validateReg()
+   {
+     var myForm=document.forms[0];
+     var firstName=myForm.firstName;
+     if(firstName.value.length==0)
+     {
+     	alert("First name is required");
+     	firstName.focus();
+        return false;
+     }
+     var lastName=myForm.lastName;
+     if(lastName.value.length==0)
+     {
+     	alert("last name is required");
+     	lastName.focus();
+        return false;
+     }
+     var age=myForm.age;
+     if(age.value.length==0)
+     {
+     	alert("Age is required");
+     	age.focus();
+        return false;
+     }
+
+   }	
+   function demo()
+   {
+        var  myForm=document.forms[0];
+       var el=myForm.lastName.value;
+       for(i=0;i<el.length;i++)
+       {
+           if(el[i]=='%'||el[i]=='/')
+           {
+            document.getElementById("s1").innerHTML="error";
+               return false;
+           }
+       }
+       return true;
+
+   }
+</script>
